@@ -1,0 +1,46 @@
+.header{
+    width: 100%;
+    height:20%;
+    display: flex;
+    gap:10px;
+    background-color: rgb(242,242,242);
+}
+.headerleft{
+    width:50%;
+    height:100%;
+    line-height: 2;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;  
+    background-color: rgb(242,242,242);
+}
+#textbox1{
+    width:400px;
+    height: 30px;
+    outline: 0;
+}
+.headerright{
+    margin-left: 150px;
+    width:40%;
+    height:100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(242,242,242);
+}
+.footer{
+    width: 100%;
+    height:70%;
+    overflow: auto;
+}
+.pagination{
+    width: 100%;
+    height:10%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}

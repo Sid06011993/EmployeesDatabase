@@ -1,0 +1,65 @@
+
+<div class="backpage">
+    <div class="heading">
+        <h4 *ngIf="!id">Create a New Employee Record</h4>
+        <h4 *ngIf="id">Update an Employee Record</h4>
+    </div>
+    <div class="box">
+<form [formGroup]="employeeForm">
+    <label class="label">Name:</label>
+    <input type="text" class="input" formControlName="name"><br>
+    <label class="label">Company:</label>
+    <input type="text" class="input" formControlName="company"><br>
+    <label class="label">Role:</label>
+    <input type="text" class="input" formControlName="role"><br>
+    <label class="label">Package:</label>
+    <input type="number" class="input" formControlName="package"><br>
+    <label class="label">Email:</label>
+    <input type="email" class="input" formControlName="email"><br>
+    <label class="label">D-O-B:</label>
+    <input type="date"  class="input" formControlName="dob"> <br>
+    <div formGroupName="address">
+    <label class="label">Address</label><br>
+    <label class="label">Line 1:</label>
+    <input type="text" class="input" formControlName="addressLine"><br>
+    <label class="label">City:</label>
+    <input type="text" class="input" formControlName="city"><br>
+    <label class="label">State:</label>
+    <input type="text" class="input" formControlName="state"><br>
+    <label class="label">Pincode</label>
+    <input type="number" class="input" formControlName="pincode"><br>
+    </div>
+    
+    <label class="label">Gender:</label>
+    <label class="label1">Male</label><input type="radio" name="gender" formControlName="gender" value="Male" class="label1">
+    <label class="label1">Female</label><input type="radio" name="gender" formControlName="gender" value="Female" class="label1"><br>
+
+    <label class="label">Mode:</label>
+    <label class="label1">WFH</label><input type="radio" name="workMode" formControlName="workMode" value="remote" class="label1">
+    <label class="label1">WFO</label><input type="radio" name="workMode" formControlName="workMode" value="workFromOffice" class="label1"><br>
+    <div *ngIf="employeeForm.get('workMode')?.value=='remote'">
+            <label>Wifi Bill:</label>
+            <input type="number" formControlName="wifibill">
+    </div>
+    <div *ngIf="employeeForm.get('workMode')?.value=='workFromOffice'">
+        <label>Travel Fee:</label>
+        <input type="number" formControlName="travelfee">
+    </div>
+
+
+    <button (click)="addhikes()" id="hikebutton" >Add Hikes</button>
+    <div formArrayName="hikes">
+        <div *ngFor="let hike of hikesFormArray.controls, let i = index">
+            <div formGroupName="{{i}}" >
+                <h6>Hike {{i+1}}</h6>
+                <label class="label">Year:</label><input type="number" class="input" formControlName="year"><br>
+                <label class="label">Hike(%):</label><input type="number" class="input" formControlName="hikepercentage"><br>
+                <button (click)="deletehike(i)" id="deletehike">Remove Hike</button>
+            </div>
+        </div>
+    </div>
+
+    <button (click)="submit()" id="submit">Submit</button>
+</form>
+    </div>
+</div>

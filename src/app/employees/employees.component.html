@@ -1,0 +1,71 @@
+<div class="header">
+            <div class="headerleft">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                  </svg><input type="text" placeholder="type here to search" id="textbox1"[(ngModel)]='term' (keyup)="search()"><br>
+            </div>
+            <div class="headerright">
+                <select [(ngModel)]="column" id="dropdown1">
+                    <option value="name">Name</option>
+                    <option value="company">Company</option>
+                    <option value="role">Role</option>
+                    <option value="package">Package</option>
+                </select><br>
+                
+                <select [(ngModel)]="order" id="dropdown2">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>  
+                <button class="btn btn-outline-warning" (click)="sortEmployees()">Sort</button>
+                
+            </div>
+</div>
+<div class="footer">
+    <table [cellSpacing]="1" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th style="text-align: center;">Sr. No.</th>
+                <th style="text-align: center;">Name</th> 
+                <th style="text-align: center;">Company</th>
+                <th style="text-align: center;">Role</th>
+                <th style="text-align: center;">Package</th>
+                <th style="text-align: center;">D-O-B</th>
+                <th colspan="3" style="text-align: center;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees, let i = index">
+                <td style="text-align: center;">{{i+1}}</td>
+                <td style="text-align: center;">{{employee.name}}</td>
+                <td style="text-align: center;">{{employee.company}}</td>
+                <td style="text-align: center;">{{employee.role}}</td>
+                <td [ngStyle]="{'color':employee.package>900000?'green':'red'}" style="text-align: center;">{{employee.package}}</td>
+                <td style="text-align: center;">{{employee.dob | date: 'yyyy/mm/dd' }} <td>
+                <td style="text-align: center;"><button class="btn btn-outline-danger" (click)="delete(employee.id)">Delete</button></td>
+                <td style="text-align: center;"><button class="btn btn-outline-info" routerLink="/dashboard/viewemployees/{{employee.id}}">View</button></td>
+                <td style="text-align: center;"><button class="btn btn-outline-success" routerLink="/dashboard/createemployee/{{employee.id}}">Edit</button></td>
+
+            
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="pagination">
+    <label id="dropdown3">Limit Per Page</label>
+    <select value="limit" [(ngModel)]="limit" id="dropdown5">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </select>
+    <h5> | </h5>
+    <label id="dropdown4">No. of Pages</label>
+    <select value="page" [(ngModel)]="page" id="dropdown6">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+</select>
+<button class="btn btn-outline-warning" (click)="paginate()">Paginate</button>
+
+</div>
