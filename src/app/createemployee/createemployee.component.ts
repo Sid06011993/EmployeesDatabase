@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { EmployeesService } from '../employees.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -11,8 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CreateemployeeComponent {
 
   public employeeForm:FormGroup = new FormGroup({
-    name:new FormControl(),
-    company: new FormControl(),
+    name:new FormControl('',[Validators.required, Validators.minLength(5), Validators.maxLength(10)]),
+    company: new FormControl('',[Validators.required, Validators.minLength(5), Validators.maxLength(10)]),
     role: new FormControl(),
     package: new FormControl(),
     email: new FormControl(),

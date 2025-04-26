@@ -13,6 +13,7 @@ import { CreateemployeeComponent } from './createemployee/createemployee.compone
 import { HomeComponent } from './home/home.component';
 import { LoadingpageComponent } from './loadingpage/loadingpage.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -27,6 +28,7 @@ import { LogoutComponent } from './logout/logout.component';
     HomeComponent,
     LoadingpageComponent,
     LogoutComponent,
+    
   
   ],
   imports: [
@@ -34,7 +36,8 @@ import { LogoutComponent } from './logout/logout.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
     
   ],
   providers: [],

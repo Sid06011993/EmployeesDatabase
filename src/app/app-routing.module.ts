@@ -20,10 +20,7 @@ const routes: Routes = [
     {path:'createemployee', component: CreateemployeeComponent, canActivate:[AuthenticationGuard]},
     {path:'createemployee/:id', component: CreateemployeeComponent, canActivate:[AuthenticationGuard]},
     {path: 'loadingpage', component: LoadingpageComponent}
-  ]},
-  {path: 'logout', component: LogoutComponent}
-  
-  
+  ]},  
 ];
 
 @NgModule({

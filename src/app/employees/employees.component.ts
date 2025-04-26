@@ -43,7 +43,6 @@ reload(){
       (data:any)=>{
         this.employees=data;
         console.log(data)
-        
       }, (err:any)=>{
         alert("Internal Server Error");
       }

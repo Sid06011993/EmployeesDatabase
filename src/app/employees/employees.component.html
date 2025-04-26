@@ -40,7 +40,7 @@
                 <td style="text-align: center;">{{employee.company}}</td>
                 <td style="text-align: center;">{{employee.role}}</td>
                 <td [ngStyle]="{'color':employee.package>900000?'green':'red'}" style="text-align: center;">{{employee.package}}</td>
-                <td style="text-align: center;">{{employee.dob | date: 'yyyy/mm/dd' }} <td>
+                <td style="text-align: center;">{{employee.dob | date: 'YYYY/MM/dd' }} <td>
                 <td style="text-align: center;"><button class="btn btn-outline-danger" (click)="delete(employee.id)">Delete</button></td>
                 <td style="text-align: center;"><button class="btn btn-outline-info" routerLink="/dashboard/viewemployees/{{employee.id}}">View</button></td>
                 <td style="text-align: center;"><button class="btn btn-outline-success" routerLink="/dashboard/createemployee/{{employee.id}}">Edit</button></td>
